@@ -9,18 +9,28 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   static const maxSeconds = 25 * 60;
   int seconds = maxSeconds;
-
   Timer? timer;
 
   void startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (_) {
-      if (seconds > 0) {
-        setState(() {
-          seconds--;
-        });
-      } else {
-        timer?.cancel();
-      }
+    if (timer == null || !timer!.isActive) {
+      timer = Timer.periodic(Duration(seconds: 1), (_) {
+        if (seconds > 0) {
+          setState(() {
+            seconds--;
+          });
+        } else {
+          timer?.cancel();
+        }
+      });
+    }
+  }
+
+  void cancelTimer() {
+    if (timer != null && timer!.isActive) {
+      timer?.cancel();
+    }
+    setState(() {
+      seconds = maxSeconds;
     });
   }
 
@@ -36,34 +46,45 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              '${(seconds ~/ 60).toString().padLeft(2, '0')}:${(seconds % 60).toString().padLeft(2, '0')}',
-              style: TextStyle(
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 20),
+              Text(
+                '${(seconds ~/ 60).toString().padLeft(2, '0')}:${(seconds % 60).toString().padLeft(2, '0')}',
+                style: TextStyle(fontSize: 92, fontWeight: FontWeight.bold),
               ),
-            ),
-            SizedBox(height: 20),
-            Image.asset(
-                'assets/pets/cat.png'), // Panda icon replaced by cat icon
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => startTimer(),
-              child: Text('START'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.green, // Start button color
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                textStyle: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+              SizedBox(height: 20),
+              Image.asset(
+                'assets/pets/cat.png',
+                height: MediaQuery.of(context).size.height * 0.3,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: startTimer,
+                child: Text('START'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  textStyle:
+                      TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 20), // Spacing between buttons
+              ElevatedButton(
+                onPressed: cancelTimer,
+                child: Text('CANCEL'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  textStyle:
+                      TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
