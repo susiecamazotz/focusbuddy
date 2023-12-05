@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'theme.dart'; // Make sure the path to theme.dart is correct
-import 'navigation.dart'; // Make sure the path to navigation.dart is correct
+import 'theme.dart'; // Import theme.dart where appThemeData is defined
+import 'navigation.dart'; // Import navigation.dart where NavigationScreen is defined
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: appThemeData, // Make sure this is defined in theme.dart
-      home: NavigationScreen(), // Root widget with bottom navigation
+      title: 'Focus Buddy',
+      theme: appThemeData, // Use the theme data defined in theme.dart
+      home: const NavigationScreen(), // Root widget with bottom navigation
     );
   }
 }

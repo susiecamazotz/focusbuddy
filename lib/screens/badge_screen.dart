@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class BadgeScreen extends StatelessWidget {
+  const BadgeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Badges'),
+        title: const Text('Badges'),
       ),
       body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
         ),
         itemCount: 20, // Replace with your actual number of badges
