@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../theme.dart';
-
 // Import the chart library you decide to use
 
 class StatisticsScreen extends StatelessWidget {

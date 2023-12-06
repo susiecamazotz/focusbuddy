@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../theme.dart'; // Ensure this import points to the file where appThemeData is defined
 
 class BadgeScreen extends StatelessWidget {
   const BadgeScreen({super.key});
