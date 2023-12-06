@@ -1,16 +1,24 @@
-# focus_buddy
+# Focus Buddy
 
-A new Flutter project.
+Focus Buddy is a Flutter-based mobile application designed to enhance productivity and focus. It helps users manage their time efficiently with features like focus timers, habit tracking, and progress statistics. 
+
+## Features
+
+- **Focus Timer**: Implements a customizable timer to aid users in maintaining concentration on tasks.
+- **Habit Tracking**: Allows users to track and maintain their daily habits.
+- **Statistics**: Visualizes user progress and productivity trends.
+- **Friends**: Connect with friends for motivational support.
+- **Customizable Settings**: Offers various settings to tailor the app experience to the user’s preferences, including themes, notification settings, and more.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter: Ensure you have Flutter installed on your machine. To install Flutter, follow the guide [here](https://docs.flutter.dev/get-started/install).
+- Android Studio or Visual Studio Code: Required for writing and running the Flutter app. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/susiecamazotz/focusbuddy.git
