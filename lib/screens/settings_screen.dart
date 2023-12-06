@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -19,16 +20,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
   // Add your initialization of local notifications here, if needed
 
   @override
+=======
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
+  @override
+>>>>>>> origin/master
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
+<<<<<<< HEAD
         backgroundColor: cozyGreen,
+=======
+>>>>>>> origin/master
       ),
       body: ListView(
         children: [
           SwitchListTile(
             title: const Text('Mute Notifications'),
+<<<<<<< HEAD
             value: _muteNotifications,
             onChanged: (bool value) {
               setState(() {
@@ -78,10 +90,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: Icon(Icons.arrow_forward_ios, color: cozyGreen),
           ),
           // Add more settings options here
+=======
+            value: true, // Replace with actual value
+            onChanged: (bool value) {
+              // Handle toggle switch
+            },
+          ),
+          ListTile(
+            title: const Text('Language'),
+            subtitle: const Text('English'), // Replace with actual setting
+            onTap: () {
+              // Handle change language
+            },
+          ),
+          // Add more settings here
+>>>>>>> origin/master
         ],
       ),
     );
   }
+<<<<<<< HEAD
 
   void _showLanguagePicker(BuildContext context) {
     showDialog(
@@ -123,4 +151,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   // Add more functions to handle other settings changes here
+=======
+>>>>>>> origin/master
 }
