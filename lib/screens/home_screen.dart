@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_analog_clock/flutter_analog_clock.dart';
 import 'dart:async';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'package:vibration/vibration.dart';
 
-const int minTime = 10;
-const int maxTime = 120;
-const cozyGreen = Color(0xFF3D8361); // Define the cozy green color
+const int timerDuration = 25;
+const cozyGreen = Color(0xFF3D8361);
 
 class HomeScreen extends StatefulWidget {
   final Function(bool)? onTimerToggle;
@@ -17,7 +16,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final ValueNotifier<int> _timeNotifier = ValueNotifier<int>(minTime * 60);
+  final ValueNotifier<int> _timeNotifier =
+      ValueNotifier<int>(timerDuration * 60);
   Timer? _timer;
 
   @override
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void cancelTimer() {
     _timer?.cancel();
-    _timeNotifier.value = minTime * 60;
+    _timeNotifier.value = timerDuration * 60;
     widget.onTimerToggle?.call(false);
   }
 
@@ -51,15 +51,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Focus Buddy'),
-        backgroundColor: cozyGreen,
+        backgroundColor: Colors.transparent,
         leading: _timer?.isActive ?? false ? Container() : null,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const CircularSlider(),
+          children: [
+            _timer?.isActive ?? false
+                ? SizedBox(
+                    height: 275,
+                    child: AnalogClock(
+                        dateTime: DateTime.now(),
+                        hourHandColor: Colors.white,
+                        minuteHandColor: Colors.white,
+                        secondHandColor: Colors.white,
+                        dialBorderColor: Colors.transparent,
+                        dialColor: Colors.transparent,
+                        hourNumberColor: Colors.white,
+                        markingColor: Colors.white,
+                        centerPointColor: Colors.white))
+                : const CatImage(),
             TimerText(timeNotifier: _timeNotifier),
           ],
         ),
@@ -74,80 +86,21 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class CircularSlider extends StatefulWidget {
-  const CircularSlider({super.key});
-
-  @override
-  State<CircularSlider> createState() => _CircularSliderState();
-}
-
-class _CircularSliderState extends State<CircularSlider> {
-  double _currentSliderValue = minTime.toDouble();
-
-  @override
-  Widget build(BuildContext context) {
-    double sliderSize = MediaQuery.of(context).size.width * 0.8;
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        SleekCircularSlider(
-          appearance: CircularSliderAppearance(
-            size: sliderSize,
-            angleRange: 360,
-            startAngle: 90,
-            customWidths: CustomSliderWidths(
-              trackWidth: 4,
-              progressBarWidth: 15,
-              handlerSize: 8,
-            ),
-            customColors: CustomSliderColors(
-              trackColor: Colors.grey[300],
-              progressBarColor: cozyGreen,
-              dotColor: cozyGreen,
-            ),
-            infoProperties: InfoProperties(
-              mainLabelStyle: const TextStyle(
-                fontSize: 20,
-                color: Colors.transparent,
-              ),
-            ),
-          ),
-          initialValue: _currentSliderValue,
-          min: minTime.toDouble(),
-          max: maxTime.toDouble(),
-          onChangeEnd: (double value) {
-            setState(() {
-              _currentSliderValue = (value ~/ 5) * 5;
-              context
-                  .findAncestorStateOfType<_HomeScreenState>()
-                  ?._timeNotifier
-                  .value = _currentSliderValue.toInt() * 60;
-            });
-          },
-        ),
-        CatImage(sliderSize: sliderSize),
-      ],
-    );
-  }
-}
-
 class CatImage extends StatelessWidget {
-  final double sliderSize;
-
-  const CatImage({super.key, required this.sliderSize});
+  const CatImage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This is where you would add your cat image asset
-    return Container(
-      width: sliderSize / 2,
-      height: sliderSize / 2,
-      padding: const EdgeInsets.all(20),
-      child: Image.asset(
-        'assets/pets/cat_icon.png',
-        fit: BoxFit.contain,
-      ),
-    );
+    return Padding(
+        padding: const EdgeInsets.all(20),
+        child: SizedBox(
+          height: 250,
+          child: Image.asset(
+            'assets/pets/cat_icon.png',
+            fit: BoxFit.contain,
+            color: Colors.white,
+          ),
+        ));
   }
 }
 

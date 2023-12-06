@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+
+import '../theme.dart';
+
 // Import the chart library you decide to use
 
 class StatisticsScreen extends StatelessWidget {
   const StatisticsScreen({super.key});
 
-  static const cozyGreen = Color(0xFF3D8361); // Define the cozy green color
+  static const cozyGreen = Color(0xFF3D8361);
 
   @override
   Widget build(BuildContext context) {
     // Replace this with your actual chart widget
-    // For example, if you're using fl_chart, it could be BarChart(BarChartData(...))
     final Widget chartWidget = Container(
-      height: 200, // Temporary height for the placeholder
+      height: 200,
       decoration: BoxDecoration(
-        color: Colors.grey[200], // Temporary color for the placeholder
-        borderRadius: BorderRadius.circular(18), // Slight rounding of corners
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(18),
       ),
       alignment: Alignment.center,
       child: const Text('Your chart goes here'),
@@ -22,23 +24,22 @@ class StatisticsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Statistics'),
-        backgroundColor: cozyGreen, // Apply the cozy green theme to AppBar
+        backgroundColor: cozyGreen,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0), // Add padding around the chart
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Your Activity', // Title for your chart section
+              'Your Activity',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: cozyGreen, // Use the cozy green for text
+                color: cozyGreen,
               ),
             ),
-            const SizedBox(height: 20), // Space between title and chart
+            const SizedBox(height: 20),
             chartWidget, // Your actual chart widget will go here
             // You can add more statistics widgets or information below
           ],

@@ -3,35 +3,30 @@ import 'package:flutter/material.dart';
 class FriendsScreen extends StatelessWidget {
   const FriendsScreen({super.key});
 
-  static const cozyGreen = Color(0xFF3D8361); // Define the cozy green color
-
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context); // Using the theme from theme.dart
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Friends'),
-        backgroundColor: cozyGreen, // Apply the cozy green theme to AppBar
+        backgroundColor: theme.appBarTheme.backgroundColor,
       ),
       body: ListView.builder(
         itemCount: 10, // Replace with the actual number of friends
         itemBuilder: (context, index) {
           return Card(
-            // Wrap ListTile with a Card for better visual separation
-            margin: const EdgeInsets.symmetric(
-                vertical: 4, horizontal: 8), // Card margin
+            margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
             child: ListTile(
               leading: CircleAvatar(
-                // Use a CircleAvatar for the friend's avatar
-                backgroundColor: cozyGreen,
+                backgroundColor:
+                    theme.primaryColor, // Using theme primary color
                 child:
                     Text('F${index + 1}'), // Placeholder for friend's initials
               ),
               title: Text('Friend ${index + 1}'),
               subtitle: Text('Status of friend ${index + 1}'),
               trailing: IconButton(
-                // An icon button to initiate chat or similar action
                 icon: const Icon(Icons.message),
-                color: cozyGreen,
+                color: theme.cardColor, // Using theme primary color
                 onPressed: () {
                   // Implement your messaging logic here
                 },

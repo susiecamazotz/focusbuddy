@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -9,21 +8,19 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  static const cozyGreen = Color(0xFF3D8361); // Define the cozy green color
   bool _muteNotifications = false;
   bool _darkMode = false;
   bool _dailyReminder = false;
   bool _is24HourFormat = true;
   String _language = 'English';
 
-  // Add your initialization of local notifications here, if needed
-
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
-        backgroundColor: cozyGreen,
+        backgroundColor: theme.appBarTheme.backgroundColor,
       ),
       body: ListView(
         children: [
@@ -33,10 +30,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (bool value) {
               setState(() {
                 _muteNotifications = value;
+                // Implement your notification muting logic here
               });
-              // Implement your notification muting logic here
             },
-            activeColor: cozyGreen,
+            activeColor: theme.primaryColor,
           ),
           SwitchListTile(
             title: const Text('Enable Dark Mode'),
@@ -44,10 +41,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (bool value) {
               setState(() {
                 _darkMode = value;
+                // Implement your dark mode switching logic here
               });
-              // Implement your dark mode switching logic here
             },
-            activeColor: cozyGreen,
+            activeColor: theme.primaryColor,
           ),
           SwitchListTile(
             title: const Text('Daily Reminder'),
@@ -55,10 +52,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (bool value) {
               setState(() {
                 _dailyReminder = value;
+                // Implement your daily reminder setting logic here
               });
-              // Implement your daily reminder setting logic here
             },
-            activeColor: cozyGreen,
+            activeColor: theme.primaryColor,
           ),
           SwitchListTile(
             title: const Text('24-Hour Time Format'),
@@ -66,18 +63,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (bool value) {
               setState(() {
                 _is24HourFormat = value;
+                // Implement your time format change logic here
               });
-              // Implement your time format change logic here
             },
-            activeColor: cozyGreen,
+            activeColor: theme.primaryColor,
           ),
           ListTile(
             title: const Text('Language'),
             subtitle: Text(_language),
             onTap: () => _showLanguagePicker(context),
-            trailing: Icon(Icons.arrow_forward_ios, color: cozyGreen),
+            trailing: Icon(Icons.arrow_forward_ios, color: theme.primaryColor),
           ),
-          // Add more settings options here
+          // Add more settings options here as needed
         ],
       ),
     );
@@ -106,7 +103,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     Navigator.of(context).pop();
                   },
                 ),
-                // Add more languages here
+                // Add more languages here as needed
               ],
             ),
           ),
@@ -118,9 +115,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void _changeLanguage(String language) {
     setState(() {
       _language = language;
+      // Implement your language change logic here
     });
-    // Implement your language change logic here
   }
 
-  // Add more functions to handle other settings changes here
+  // Add more functions to handle other settings changes here, if needed
 }

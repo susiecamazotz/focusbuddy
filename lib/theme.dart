@@ -1,63 +1,71 @@
 import 'package:flutter/material.dart';
 
+// Define the new colors
+const Color snowDrift = Color(0xFFF2F6F1);
+const Color blackPearl = Color(0xFF041C2C);
+const Color hippieBlue = Color(0xFF6CA2B8);
+const Color bismark = Color(0xFF417086);
+const Color wedgewood = Color(0xFF51869F);
+const Color blueDianne = Color(0xFF264F67);
+const Color blueDianne2 = Color(0xFF204255);
+const Color riverBed = Color(0xFF465257);
+const Color elephant = Color(0xFF13334C);
+const Color ivory = Color(0xFFFFFFF2);
+
 final ThemeData appThemeData = ThemeData(
-  primarySwatch: Colors.blue,
-  colorScheme: ColorScheme.fromSwatch().copyWith(
-    primary: Colors.blue, // primary color for the app
-    secondary:
-        Colors.amber, // used for the FloatingActionButtons and other elements
-  ),
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    selectedItemColor: Color(0xFFFFD700),
-    unselectedItemColor: Color(0xFFC0C0C0),
-    backgroundColor: Color(0xFF6A5ACD),
-    selectedIconTheme: IconThemeData(size: 35),
-    unselectedIconTheme: IconThemeData(size: 25),
-    selectedLabelStyle: TextStyle(fontSize: 14),
-    unselectedLabelStyle: TextStyle(fontSize: 12),
-  ),
-  scaffoldBackgroundColor: const Color(0xFFFFFAF0), // Light warm color
-  appBarTheme: const AppBarTheme(
-    color: Colors.blue,
-    elevation: 0,
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
-    ),
-    iconTheme: IconThemeData(
-      color: Colors.white, // Adjust icon colors if needed
-    ),
-  ),
-  textTheme: const TextTheme(
-    displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-    titleLarge: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-    bodyMedium: TextStyle(fontSize: 14.0),
+  cardColor: snowDrift,
+  primaryColor: blueDianne, // Using blue Dianne as an example for primary color
+  scaffoldBackgroundColor: blackPearl,
+  brightness: Brightness.dark,
+  primarySwatch:
+      Colors.blue, // Consider creating a swatch for one of the new colors
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(foregroundColor: hippieBlue),
   ),
 
-  // Button themeRR
-  buttonTheme: ButtonThemeData(
-    buttonColor: Colors.orange[400],
-    textTheme: ButtonTextTheme.primary,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0),
+  appBarTheme: const AppBarTheme(
+    color: Colors.transparent,
+  ),
+
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    selectedItemColor: bismark,
+    unselectedItemColor: riverBed,
+  ),
+
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor: blueDianne2,
+  ),
+
+  textTheme: const TextTheme(
+    bodyLarge: TextStyle(
+      color: blackPearl,
+    ),
+    bodyMedium: TextStyle(
+      color: elephant,
+    ),
+    labelLarge: TextStyle(
+      color: ivory,
     ),
   ),
-  // Card theme
-  cardTheme: CardTheme(
-    color: Colors.white,
-    shadowColor: Colors.orange.shade100,
-    elevation: 5,
-    margin: const EdgeInsets.all(10),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(15.0),
+
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      foregroundColor: snowDrift,
+      backgroundColor: hippieBlue,
     ),
   ),
-  // Floating Action Button theme
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
-    backgroundColor: Colors.orange[600],
-    foregroundColor: Colors.white,
+
+  inputDecorationTheme: const InputDecorationTheme(
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: riverBed),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: blackPearl),
+    ),
+    labelStyle: TextStyle(color: wedgewood),
   ),
-  // Define other theme properties you need
-  visualDensity: VisualDensity.adaptivePlatformDensity,
+
+  // Any other common theme attributes you'd like to define
 );

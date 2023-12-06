@@ -40,7 +40,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   sleek_circular_slider: ^2.0.1
   vibration: ^1.8.4
+  flutter_analog_clock: ^1.0.3
   flutter_local_notifications: ^16.2.0
+  
 
 
 
@@ -63,6 +65,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/pets/
+    - assets/logo/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

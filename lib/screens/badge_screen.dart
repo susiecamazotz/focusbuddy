@@ -1,45 +1,42 @@
 import 'package:flutter/material.dart';
+import '../theme.dart'; // Ensure this import points to the file where appThemeData is defined
 
 class BadgeScreen extends StatelessWidget {
   const BadgeScreen({super.key});
 
-  // Define the cozy green color for consistent theme
-  static const cozyGreen = Color(0xFF3D8361);
-
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Badges'),
-        backgroundColor: cozyGreen, // Apply the cozy green theme to AppBar
+        backgroundColor: theme.appBarTheme.backgroundColor,
       ),
       body: GridView.builder(
-        padding: const EdgeInsets.all(8), // Add some padding for aesthetics
+        padding: const EdgeInsets.all(8),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          crossAxisSpacing: 8, // Spacing between the badges horizontally
-          mainAxisSpacing: 8, // Spacing between the badges vertically
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
         ),
         itemCount: 20, // Replace with your actual number of badges
         itemBuilder: (context, index) {
-          // Use Card to display each badge with some elevation for depth
           return Card(
-            color: Colors.white, // Card background color
-            elevation: 4, // Shadow depth for 3D effect
+            color: Colors.white,
+            elevation: 4,
             child: Center(
-              // Replace with your badge widget
               child: Padding(
-                padding: const EdgeInsets.all(8), // Padding inside the card
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Placeholder for badge icon, replace with actual badge icon
-                    const Icon(Icons.star_border, size: 48, color: cozyGreen),
+                    Icon(Icons.star_border,
+                        size: 48, color: theme.primaryColor),
                     Text(
                       'Badge $index',
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: cozyGreen, // Apply the cozy green theme to text
+                      style: TextStyle(
+                        color: theme.primaryColor,
                       ),
                     ),
                   ],
