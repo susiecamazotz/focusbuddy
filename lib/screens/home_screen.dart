@@ -139,13 +139,12 @@ class CatImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // This is where you would add your cat image asset
-    // Make sure to add your actual cat image asset path in 'assets/pets/cat.png'
     return Container(
-      width: sliderSize,
-      height: sliderSize,
+      width: sliderSize / 2,
+      height: sliderSize / 2,
       padding: const EdgeInsets.all(20),
       child: Image.asset(
-        'assets/pets/cat.png',
+        'assets/pets/cat_icon.png',
         fit: BoxFit.contain,
       ),
     );
@@ -190,7 +189,7 @@ class TimerFAB extends StatelessWidget {
             onPressed: cancelTimer,
             icon: const Icon(Icons.pause),
             label: const Text('CANCEL'),
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.transparent,
             foregroundColor: Colors.white,
           )
         : FloatingActionButton.extended(

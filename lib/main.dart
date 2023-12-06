@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'theme.dart'; // Import theme.dart where appThemeData is defined
-import 'navigation.dart'; // Import navigation.dart where NavigationScreen is defined
+import 'screens/login_screen.dart'; // Import the LoginScreen
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Focus Buddy',
-      theme: appThemeData, // Use the theme data defined in theme.dart
-      home: const NavigationScreen(), // Root widget with bottom navigation
+      home: LoginScreen(), // Start with the LoginScreen
+      // Removed theme: appThemeData
     );
   }
 }
