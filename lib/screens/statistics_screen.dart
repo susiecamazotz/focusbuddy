@@ -30,7 +30,7 @@ class StatisticsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Your Activity', // Title for your chart section
               style: TextStyle(
                 fontSize: 24,

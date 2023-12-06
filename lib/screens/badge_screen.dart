@@ -34,11 +34,11 @@ class BadgeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Placeholder for badge icon, replace with actual badge icon
-                    Icon(Icons.star_border, size: 48, color: cozyGreen),
+                    const Icon(Icons.star_border, size: 48, color: cozyGreen),
                     Text(
                       'Badge $index',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: cozyGreen, // Apply the cozy green theme to text
                       ),
                     ),

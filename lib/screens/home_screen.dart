@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircularSlider(),
+            const CircularSlider(),
             TimerText(timeNotifier: _timeNotifier),
           ],
         ),
@@ -188,14 +188,14 @@ class TimerFAB extends StatelessWidget {
     return isTimerActive
         ? FloatingActionButton.extended(
             onPressed: cancelTimer,
-            icon: Icon(Icons.pause),
+            icon: const Icon(Icons.pause),
             label: const Text('CANCEL'),
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
           )
         : FloatingActionButton.extended(
             onPressed: startTimer,
-            icon: Icon(Icons.play_arrow),
+            icon: const Icon(Icons.play_arrow),
             label: const Text('START'),
             backgroundColor: cozyGreen,
             foregroundColor: Colors.white,

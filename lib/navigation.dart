@@ -9,6 +9,7 @@ class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _NavigationScreenState createState() => _NavigationScreenState();
 }
 
